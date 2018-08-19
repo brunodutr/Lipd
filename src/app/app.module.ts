@@ -11,6 +11,8 @@ import { DiarioPage } from '../pages/diario/lista/diario';
 import { PesquisarPage } from '../pages/diario/pesquisar/pesquisar';
 import { DetalhePage } from '../pages/diario/detalhe/detalhe';
 
+import { ConfiguracaoPage } from '../pages/configuracao/configuracao';
+
 import { MensagemPopoverPage } from '../pages/mensagem-popover/mensagem-popover';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,6 +27,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PesquisarPage,
     DetalhePage,
     MensagemPopoverPage,
+    ConfiguracaoPage,
     TabsPage
   ],
   imports: [BrowserModule, IonicModule.forRoot(MyApp)],
@@ -37,6 +40,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PesquisarPage,
     DetalhePage,
     MensagemPopoverPage,
+    ConfiguracaoPage,
     TabsPage
   ],
   providers: [

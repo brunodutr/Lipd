@@ -13,19 +13,34 @@
 </ion-header>
 
 
-<ion-content padding *ngIf="!alimento">
+<ion-content padding *ngIf="alimento">
 
-  ID: {{ alimento.id }}
-  <br> NOME: {{ alimento.nome }}
-  <br> QUANTIDADE: {{ alimento.qtd }}
-  <br>
+  <ion-item>
+    <ion-label color="primary" floating>Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="alimento.nome" disabled></ion-input>
+  </ion-item>
 
-  <button ion-button color="light">
-    Atualizar
-  </button>
+  <ion-item>
+    <ion-label color="primary" floating>Quantidade</ion-label>
+    <ion-input type="number" [(ngModel)]="qtd"></ion-input>
+  </ion-item>
 
-  <button ion-button color="warning">
-    Remover
-  </button>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button [disabled]="qtd === alimento.qtd" ion-button color="light" (click)="atualizar()" icon-start>
+          <ion-icon name="sync"></ion-icon> Atualizar
+        </button>
+      </ion-col>
+      <ion-col>
+
+        <button ion-button color="danger" (click)="remover()">
+          <ion-icon name="trash"></ion-icon> Remover
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 
 </ion-content>

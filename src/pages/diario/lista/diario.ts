@@ -10,15 +10,12 @@ import { Alimento } from '../../../models/alimento';
   templateUrl: 'diario.html'
 })
 export class DiarioPage {
-  static alimentos: Array<Alimento> = [
-    new Alimento({ nome: 'Abacate', qtd: 5 }),
-    new Alimento({ nome: 'Arroz', qtd: 10 })
-  ];
   constructor(public navCtrl: NavController) {}
 
   getAlimentos() {
-    return DiarioPage.alimentos;
+    return Alimento.lista;
   }
+
   pesquisar() {
     this.navCtrl.push(PesquisarPage);
   }

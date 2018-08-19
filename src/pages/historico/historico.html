@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Histórico
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="dataIni" placeholder="Data Inicial"></ion-datetime>
+          <ion-label>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="dataFim" placeholder="Data Final"></ion-datetime>
+          <ion-label>
+            <ion-icon name="calendar"></ion-icon>
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-list>
+
+    <ion-grid>
+      <ion-row *ngFor="let registro of registros">
+        <ion-item>
+          <ion-col>
+            {{ registro.data }}
+          </ion-col>
+          <ion-col>
+            {{ registro.qtd }}g
+          </ion-col>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
+
+</ion-content>

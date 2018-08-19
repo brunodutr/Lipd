@@ -1,0 +1,22 @@
+<!--
+  Generated template for the MensagemPopoverPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content>
+
+
+  <ion-grid>
+    <ion-row *ngFor="let msg of mensagens">
+      <ion-item>
+        <ion-icon *ngIf="msg.status === 'A'" name="mail"></ion-icon>
+        <ion-icon *ngIf="msg.status === 'H'" name="mail-open"></ion-icon>
+        {{ msg.nome }} - {{ msg.texto }}
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

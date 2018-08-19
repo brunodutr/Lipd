@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Diário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button class="button-icon" icon-end (click)="pesquisar()">
+    Alimento
+    <ion-icon name="add"></ion-icon>
+  </button>
+
+  <ion-list>
+
+    <ion-grid>
+      <ion-row *ngFor="let alimento of getAlimentos()">
+        <ion-item (click)="detalhar(alimento)">
+          <ion-col>
+            {{ alimento.nome }}
+          </ion-col>
+          <ion-col>
+            {{ alimento.qtd }}g
+          </ion-col>
+        </ion-item>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
+
+
+</ion-content>

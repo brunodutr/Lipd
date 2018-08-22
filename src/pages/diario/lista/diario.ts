@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
+import { Storage } from '@ionic/storage';
+
 import { PesquisarPage } from '../pesquisar/pesquisar';
 import { DetalhePage } from '../detalhe/detalhe';
 import { Alimento } from '../../../models/alimento';
@@ -10,7 +12,7 @@ import { Alimento } from '../../../models/alimento';
   templateUrl: 'diario.html'
 })
 export class DiarioPage {
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public storage: Storage) {}
 
   getAlimentos() {
     return Alimento.lista;

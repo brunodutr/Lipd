@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Mensagem } from '../../models/mensagem';
+import { Mensagem } from '../../../models/mensagem';
 
 /**
  * Generated class for the MensagemPopoverPage page.
@@ -11,10 +11,10 @@ import { Mensagem } from '../../models/mensagem';
 
 @IonicPage()
 @Component({
-  selector: 'page-mensagem-popover',
-  templateUrl: 'mensagem-popover.html'
+  selector: 'page-mensagem',
+  templateUrl: 'mensagem.html'
 })
-export class MensagemPopoverPage {
+export class MensagemPage {
   mensagens: Array<Mensagem> = [
     new Mensagem({
       nome: 'BD',
@@ -32,6 +32,6 @@ export class MensagemPopoverPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MensagemPopoverPage');
+    console.log('ionViewDidLoad MensagemPage');
   }
 }

@@ -3,21 +3,27 @@
     <ion-title>
       Início
     </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="showMsg()">
+        <ion-icon name="mail"></ion-icon>
+      </button>
+
+      <button ion-button icon-only>
+        <ion-icon name="sync"></ion-icon>
+      </button>
+
+    </ion-buttons>
+
+
   </ion-navbar>
+
+
 </ion-header>
 
 <ion-content padding>
   <ion-grid>
-    <ion-row>
-      <button class="button-icon" (click)="showMsg()">
-        <ion-icon name="md-mail" alt="Mensagens"></ion-icon>
-      </button>
 
-      <button class="button-icon">
-        <ion-icon name="md-sync" alt="Sincronizar"></ion-icon>
-      </button>
-
-    </ion-row>
     <ion-row>
       <img src="assets/imgs/personas/persona1.png">
     </ion-row>

@@ -7,15 +7,38 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>pesquisar</ion-title>
+
+    <ion-searchbar placeholder="Buscar" [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)"
+      (ionCancel)="onCancel($event)">
+    </ion-searchbar>
+
   </ion-navbar>
+
 
 </ion-header>
 
 
 <ion-content padding>
 
-  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
-  </ion-searchbar>
+
+  <ion-list>
+
+    <ion-grid *ngIf="isCategoria">
+      <ion-row *ngFor="let c of getLista()">
+        <button ion-item (click)="getAlimentos(c._id)">
+          {{ c.categoria }}
+        </button>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="isAlimento">
+      <ion-row *ngFor="let c of getLista()">
+        <button ion-item (click)="getAlimento(c._id)">
+          {{ c.descricacao }}
+        </button>
+      </ion-row>
+    </ion-grid>
+
+  </ion-list>
 
 </ion-content>

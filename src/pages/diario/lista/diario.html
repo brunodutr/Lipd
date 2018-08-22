@@ -1,15 +1,17 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Diário</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="pesquisar()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
-  <button class="button-icon" icon-end (click)="pesquisar()">
-    Alimento
-    <ion-icon name="add"></ion-icon>
-  </button>
 
   <ion-list>
 

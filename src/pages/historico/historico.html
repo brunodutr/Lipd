@@ -13,7 +13,8 @@
     <ion-row>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="dataIni" placeholder="Data Inicial"></ion-datetime>
+          <ion-datetime cancelText="Cancelar" doneText="Confirmar" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="dataIni"
+            placeholder="Data Inicial"></ion-datetime>
           <ion-label>
             <ion-icon name="calendar"></ion-icon>
           </ion-label>
@@ -21,7 +22,8 @@
       </ion-col>
       <ion-col>
         <ion-item>
-          <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [(ngModel)]="dataFim" placeholder="Data Final"></ion-datetime>
+          <ion-datetime cancelText="Cancelar" doneText="Confirmar" displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" [min]="dataIni"
+            [max]="dataAtual" [(ngModel)]="dataFim" placeholder="Data Final"></ion-datetime>
           <ion-label>
             <ion-icon name="calendar"></ion-icon>
           </ion-label>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Log in</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="login()" [formGroup]="loginForm">
+    <ion-list inset>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+      </ion-item>
+
+    </ion-list>
+
+    <div padding-horizontal>
+
+      <button ion-button full type="submit">Entrar</button>
+
+    </div>
+  </form>
+</ion-content>

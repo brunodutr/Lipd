@@ -1,5 +1,5 @@
 export const APP_CONFIG = {
-  backButtonText: 'Voltar',
+  backButtonText: '',
   monthNames: [
     'janeiro',
     'fevereiro',

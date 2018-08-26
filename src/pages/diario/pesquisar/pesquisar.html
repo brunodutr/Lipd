@@ -23,20 +23,24 @@
 
   <ion-list>
 
-    <ion-grid *ngIf="isCategoria">
-      <ion-row *ngFor="let c of getLista()">
-        <button ion-item (click)="getAlimentos(c._id)">
-          {{ c.categoria }}
-        </button>
-      </ion-row>
-    </ion-grid>
+    <ion-list-header>
+      {{ header }}
+    </ion-list-header>
 
-    <ion-grid *ngIf="isAlimento">
+    <ion-grid>
+
       <ion-row *ngFor="let c of getLista()">
-        <button ion-item (click)="getAlimento(c._id)">
-          {{ c.descricacao }}
+
+        <button *ngIf="isCategoria" ion-item (click)="getAlimentos(c)">
+          {{ c.descricao }}
         </button>
+
+        <button *ngIf="isAlimento" ion-item (click)="adicionaAlimento(c)">
+          {{ c.descricao }}
+        </button>
+
       </ion-row>
+
     </ion-grid>
 
   </ion-list>

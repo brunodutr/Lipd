@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CATEGORIAS } from '../../../constantes/categorias';
 import { ALIMENTOS } from '../../../constantes/alimentos';
 
+import { Alimento } from '../../../models/alimento';
+
 /**
  * Generated class for the PesquisarPage page.
  *
@@ -17,14 +19,17 @@ import { ALIMENTOS } from '../../../constantes/alimentos';
 })
 export class PesquisarPage {
   lista: Array<any>;
-  isAlimento: boolean;
+  header: string;
+
   isCategoria: boolean;
+  isAlimento: boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 
   ionViewDidLoad() {
-    this.isCategoria = true;
     this.lista = CATEGORIAS;
+    this.header = 'Categorias';
+    this.isCategoria = true;
     console.log('ionViewDidLoad PesquisarPage');
   }
 
@@ -32,15 +37,42 @@ export class PesquisarPage {
     return this.lista;
   }
 
-  getAlimentos(id) {
+  getAlimentos(categoria) {
+    this.header = categoria.descricao;
+    this.lista = ALIMENTOS.filter(a => a.categoria === categoria._id);
     this.isCategoria = false;
     this.isAlimento = true;
-    this.lista = ALIMENTOS.filter(a => a.classificacao === id);
+
     return this.lista;
   }
 
-  getAlimento(id) {}
+  adicionaAlimento(alimento) {
+    Alimento.lista.push(new Alimento({ nome: alimento.descricao, qtd: 100 }));
+    this.navCtrl.pop();
+  }
 
-  onInput(event) {}
+  onInput(event) {
+    this.isCategoria = false;
+    this.isAlimento = false;
+
+    const val = event.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.lista = ALIMENTOS.filter(
+        a => a.descricao.toLowerCase().indexOf(val.toLowerCase()) > -1
+      );
+      this.header =
+        this.lista.length > 1
+          ? `${this.lista.length} resultados`
+          : `${this.lista.length} resultado`;
+      this.isAlimento = true;
+    } else {
+      this.lista = CATEGORIAS;
+      this.isCategoria = true;
+      this.header = 'Categorias';
+    }
+  }
+
   onCancel(event) {}
 }

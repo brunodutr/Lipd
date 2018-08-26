@@ -15,9 +15,16 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import * as Constantes from '../constantes/config';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { firebaseConfig } from '../constantes/firebase.config';
+import { LoginPage } from '../pages/login/login';
+import { AuthService } from '../services/auth.service';
+
 @NgModule({
   declarations: [
     MyApp,
+    LoginPage,
     DiarioPage,
     InicioPage,
     HistoricoPage,
@@ -30,11 +37,13 @@ import * as Constantes from '../constantes/config';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp, Constantes.APP_CONFIG),
+    AngularFireModule.initializeApp(firebaseConfig.fire),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    LoginPage,
     DiarioPage,
     InicioPage,
     HistoricoPage,
@@ -47,7 +56,9 @@ import * as Constantes from '../constantes/config';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    AuthService,
+    AngularFireAuth
   ]
 })
 export class AppModule {}

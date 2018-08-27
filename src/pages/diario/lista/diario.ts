@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { Storage } from '@ionic/storage';
-
 import { PesquisarPage } from '../pesquisar/pesquisar';
 import { DetalhePage } from '../detalhe/detalhe';
+import { DiarioService } from '../../../services/diario.service';
 import { Alimento } from '../../../models/alimento';
 
 @Component({
@@ -12,10 +11,13 @@ import { Alimento } from '../../../models/alimento';
   templateUrl: 'diario.html'
 })
 export class DiarioPage {
-  constructor(public navCtrl: NavController, public storage: Storage) {}
+  lista: Alimento[];
+  constructor(public navCtrl: NavController, public dService: DiarioService) {}
 
-  getAlimentos() {
-    return Alimento.lista;
+  ionViewDidEnter() {
+    this.dService
+      .getDiario()
+      .then((result: Array<Alimento>) => (this.lista = result));
   }
 
   pesquisar() {

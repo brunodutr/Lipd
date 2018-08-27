@@ -20,6 +20,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../constantes/firebase.config';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
+import { DiarioService } from '../services/diario.service';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { AuthService } from '../services/auth.service';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    DiarioService,
     AuthService,
     AngularFireAuth
   ]

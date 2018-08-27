@@ -16,7 +16,7 @@
   <ion-list>
 
     <ion-grid>
-      <ion-row *ngFor="let alimento of getAlimentos()">
+      <ion-row *ngFor="let alimento of lista">
         <ion-item (click)="detalhar(alimento)">
           <ion-col>
             {{ alimento.nome }}

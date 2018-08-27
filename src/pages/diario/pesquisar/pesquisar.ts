@@ -4,6 +4,7 @@ import { CATEGORIAS } from '../../../constantes/categorias';
 import { ALIMENTOS } from '../../../constantes/alimentos';
 
 import { Alimento } from '../../../models/alimento';
+import { DiarioService } from '../../../services/diario.service';
 
 /**
  * Generated class for the PesquisarPage page.
@@ -24,7 +25,11 @@ export class PesquisarPage {
   isCategoria: boolean;
   isAlimento: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private dService: DiarioService
+  ) {}
 
   ionViewDidLoad() {
     this.lista = CATEGORIAS;
@@ -46,9 +51,16 @@ export class PesquisarPage {
     return this.lista;
   }
 
-  adicionaAlimento(alimento) {
-    Alimento.lista.push(new Alimento({ nome: alimento.descricao, qtd: 100 }));
-    this.navCtrl.pop();
+  adicionaAlimento(item) {
+    this.dService
+      .getDiario()
+      .then((diario: Array<Alimento>) => {
+        const alimento = new Alimento({ nome: item.descricao, qtd: 100 });
+        diario.push(alimento);
+        this.dService.insert(diario);
+        this.navCtrl.pop();
+      })
+      .catch(error => console.log(error));
   }
 
   onInput(event) {

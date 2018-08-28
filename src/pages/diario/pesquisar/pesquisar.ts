@@ -51,16 +51,9 @@ export class PesquisarPage {
     return this.lista;
   }
 
-  adicionaAlimento(item) {
-    this.dService
-      .getDiario()
-      .then((diario: Array<Alimento>) => {
-        const alimento = new Alimento({ nome: item.descricao, qtd: 100 });
-        diario.push(alimento);
-        this.dService.insert(diario);
-        this.navCtrl.pop();
-      })
-      .catch(error => console.log(error));
+  async adicionaAlimento(item) {
+    await this.dService.insertAlimento(item);
+    this.navCtrl.pop();
   }
 
   onInput(event) {

@@ -11,13 +11,11 @@ import { Alimento } from '../../../models/alimento';
   templateUrl: 'diario.html'
 })
 export class DiarioPage {
-  lista: Alimento[];
+  lista;
   constructor(public navCtrl: NavController, public dService: DiarioService) {}
 
-  ionViewDidEnter() {
-    this.dService
-      .getDiario()
-      .then((result: Array<Alimento>) => (this.lista = result));
+  async ionViewDidEnter() {
+    this.lista = await this.dService.getDiario();
   }
 
   pesquisar() {

@@ -12,29 +12,37 @@ export class DiarioService {
     const dataAtual = moment(new Date()).format('DDMMYYYY');
     return `${dataAtual}_${this.auth.getUID()}`;
   }
-  public insertDiario(diario: Array<Alimento>) {
+
+  private insertDiario(diario: Array<Alimento>) {
     let key = this.getActualKey();
     return this.storage.set(key, diario);
   }
 
-  public insertAlimento(alimento: Alimento) {}
-
-  public get(key: string) {
-    return this.storage.get(key);
+  public async insertAlimento(item) {
+    let diario = await this.getDiario();
+    item.qtd = 50;
+    diario.filter(x => {
+      if (x._id === item._id) {
+        item.qtd += x.qtd;
+        let index = diario.indexOf(x);
+        diario.splice(index, 1);
+      }
+    });
+    diario.push(item);
+    this.insertDiario(diario);
   }
 
-  public getDiario() {
-    return this.storage
-      .get(this.getActualKey())
-      .then((result: Array<Alimento>) => {
-        if (!result) {
-          this.insert([]);
-          return Promise.resolve([]);
-        }
-        return Promise.resolve(result);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+  public async get(key: string) {
+    return await this.storage.get(key);
+  }
+
+  public async getDiario() {
+    let result = await this.storage.get(this.getActualKey());
+
+    if (!result) {
+      this.insertDiario([]);
+      return [];
+    }
+    return result;
   }
 }

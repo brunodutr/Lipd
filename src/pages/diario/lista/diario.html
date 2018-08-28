@@ -17,14 +17,16 @@
 
     <ion-grid>
       <ion-row *ngFor="let alimento of lista">
-        <ion-item (click)="detalhar(alimento)">
-          <ion-col>
-            {{ alimento.nome }}
-          </ion-col>
-          <ion-col>
-            {{ alimento.qtd }}g
-          </ion-col>
-        </ion-item>
+        <ion-card (click)="detalhar(alimento)">
+          <ion-card-header>
+            {{ alimento.descricao }}
+          </ion-card-header>
+          <ion-card-content>
+            Quantidade(g) : {{ alimento.qtd }}
+            <br> Calorias(kcal) : {{ ((alimento.energia.kcal / 100) * alimento.qtd).toFixed(2) }}
+            <br> Lipideos: {{ ((alimento.lipideos / 100) * alimento.qtd).toFixed(2) }}
+          </ion-card-content>
+        </ion-card>
       </ion-row>
     </ion-grid>
 

@@ -27,17 +27,17 @@ export class DetalhePage {
     console.log('ionViewDidLoad DetalhePage');
   }
 
-  atualizar() {
-    Alimento.lista.filter(x => {
-      if (x.id === this.alimento.id) {
-        x.qtd = this.qtd;
-        this.alimento = x;
-      }
-    });
-  }
+  // atualizar() {
+  //   Alimento.lista.filter(x => {
+  //     if (x.id === this.alimento.id) {
+  //       x.qtd = this.qtd;
+  //       this.alimento = x;
+  //     }
+  //   });
+  // }
 
-  remover() {
-    Alimento.lista = Alimento.lista.filter(x => x.id !== this.alimento.id);
-    this.navCtrl.pop();
-  }
+  // remover() {
+  //   Alimento.lista = Alimento.lista.filter(x => x.id !== this.alimento.id);
+  //   this.navCtrl.pop();
+  // }
 }

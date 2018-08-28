@@ -4,6 +4,10 @@
 
 .person {
   margin-top: 0rem;
+  left: 45px;
+  position: relative;
+  bottom: -50px;
+  z-index: -99;
 }
 
 .login {

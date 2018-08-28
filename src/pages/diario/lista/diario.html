@@ -22,9 +22,15 @@
             {{ alimento.descricao }}
           </ion-card-header>
           <ion-card-content>
-            Quantidade(g) : {{ alimento.qtd }}
-            <br> Calorias(kcal) : {{ ((alimento.energia.kcal / 100) * alimento.qtd).toFixed(2) }}
-            <br> Lipideos: {{ ((alimento.lipideos / 100) * alimento.qtd).toFixed(2) }}
+            <ion-row>
+              <p>Quantidade(g) : {{ alimento.qtd }}</p>
+            </ion-row>
+            <ion-row>
+              <p>Calorias(kcal) : {{ ((alimento.energia.kcal / 100) * alimento.qtd).toFixed(2) }}</p>
+            </ion-row>
+            <ion-row>
+              <p>Lipideos: {{ ((alimento.lipideos / 100) * alimento.qtd).toFixed(2) }}</p>
+            </ion-row>
           </ion-card-content>
         </ion-card>
       </ion-row>

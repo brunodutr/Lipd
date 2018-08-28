@@ -1,12 +1,11 @@
-page-inicio {
-  .ion-avatar {
-    min-width: 100px;
-    min-height: 100px;
-  }
+ion-avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100px !important; //any size
+  max-height: 100px !important; //any size
+}
 
-  .ion-avatar ion-img,
-  .ion-avatar img {
-    height: 100px;
-    width: 100px;
-  }
+.center {
+  align-content: center;
+  justify-content: center;
 }

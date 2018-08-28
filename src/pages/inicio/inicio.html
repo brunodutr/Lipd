@@ -9,8 +9,8 @@
         <ion-icon name="mail"></ion-icon>
       </button>
 
-      <button ion-button icon-only>
-        <ion-icon name="sync"></ion-icon>
+      <button ion-button icon-only (click)="config()">
+        <ion-icon name="settings"></ion-icon>
       </button>
 
     </ion-buttons>
@@ -22,24 +22,34 @@
 </ion-header>
 
 <ion-content padding>
+
   <ion-grid>
 
-    <ion-row>
-      <img src="assets/imgs/personas/persona1.png">
-    </ion-row>
+    <ion-item>
+      <ion-row class="center">
+        <ion-avatar item-start>
+          <img src="assets/imgs/personas/persona1.png">
+        </ion-avatar>
+      </ion-row>
+      <ion-row class="center">
+        <h2>Olá, Bruno Dutra</h2>
+      </ion-row>
+      <ion-row class="center">
+        <p>brun_dutra@hotmail.com</p>
+      </ion-row>
+    </ion-item>
 
-    <ion-row>
-      <ion-label>Evolução</ion-label>
-    </ion-row>
-
-    <ion-row>
-      <ion-label>Artigos*</ion-label>
-    </ion-row>
-
-    <ion-row>
-      <ion-label>Receitas*</ion-label>
-    </ion-row>
-
+    <ion-segment>
+      <ion-segment-button>
+        Evolução
+      </ion-segment-button>
+      <ion-segment-button>
+        Artigos
+      </ion-segment-button>
+      <ion-segment-button>
+        Receitas
+      </ion-segment-button>
+    </ion-segment>
   </ion-grid>
 
 </ion-content>

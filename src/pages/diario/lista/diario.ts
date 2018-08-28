@@ -12,6 +12,7 @@ import { Alimento } from '../../../models/alimento';
 })
 export class DiarioPage {
   lista;
+  
   constructor(public navCtrl: NavController, public dService: DiarioService) {}
 
   async ionViewDidEnter() {

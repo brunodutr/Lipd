@@ -21,6 +21,14 @@ export class AuthService {
     );
   }
 
+  async getUserInfo() {
+    let usuario = {
+      nome: this.user.displayName ? this.user.displayName : 'NOME',
+      foto: this.user.photoURL ? this.user.photoURL : 'img/marty-avatar.png',
+      email: this.user.email
+    };
+    return usuario;
+  }
   get authenticated(): boolean {
     return this.user !== null;
   }

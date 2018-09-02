@@ -2,13 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AuthService } from '../../services/auth.service';
-
-/**
- * Generated class for the ConfiguracaoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { DiariosProvider } from '../../providers/services-diarios/services-diarios';
 
 @IonicPage()
 @Component({

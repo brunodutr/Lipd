@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
+import { DiariosProvider } from '../providers/services-diarios/services-diarios';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,7 +18,8 @@ export class MyApp {
     platform: Platform,
     statusBar: StatusBar,
     splashScreen: SplashScreen,
-    auth: AuthService
+    auth: AuthService,
+    diarioService: DiariosProvider
   ) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -29,6 +31,7 @@ export class MyApp {
     auth.afAuth.authState.subscribe(
       user => {
         if (user) {
+          diarioService.iniatialize();
           this.rootPage = TabsPage;
         } else {
           this.rootPage = LoginPage;

@@ -15,8 +15,8 @@
 
   <ion-list>
 
-    <ion-grid>
-      <ion-row *ngFor="let alimento of lista">
+    <ion-grid *ngIf="service.diario">
+      <ion-row *ngFor="let alimento of service.diario.alimentos">
         <ion-card (click)="detalhar(alimento)">
           <ion-card-header>
             {{ alimento.descricao }}

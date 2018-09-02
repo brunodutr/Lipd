@@ -31,11 +31,11 @@
 
       <ion-row *ngFor="let c of getLista()">
 
-        <button *ngIf="isCategoria" ion-item (click)="getAlimentos(c)">
+        <button *ngIf="!edit" ion-item (click)="getAlimentos(c)">
           {{ c.descricao }}
         </button>
 
-        <button *ngIf="isAlimento" ion-item (click)="adicionaAlimento(c)">
+        <button *ngIf="edit" ion-item (click)="adicionaAlimento(c)">
           {{ c.descricao }}
         </button>
 

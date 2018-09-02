@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import AuthProvider = firebase.auth.AuthProvider;
+import { DiariosProvider } from '../providers/services-diarios/services-diarios';
 
 @Injectable()
 export class AuthService {
@@ -24,7 +25,9 @@ export class AuthService {
   async getUserInfo() {
     let usuario = {
       nome: this.user.displayName ? this.user.displayName : 'NOME',
-      foto: this.user.photoURL ? this.user.photoURL : 'img/marty-avatar.png',
+      foto: this.user.photoURL
+        ? this.user.photoURL
+        : `assets/imgs/personas/${this.user.uid}.jpg`,
       email: this.user.email
     };
     return usuario;

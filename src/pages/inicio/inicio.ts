@@ -15,11 +15,14 @@ export class InicioPage {
   tab2Root;
   tab3Root;
 
-  constructor(public navCtrl: NavController, private auth: AuthService) {}
+  constructor(public navCtrl: NavController, private auth: AuthService) {
+    this.getUser();
+  }
 
-  async ionViewDidEnter() {
+  async getUser() {
     this.usuario = await this.auth.getUserInfo();
   }
+  async ionViewDidEnter() {}
 
   showMsg() {
     this.navCtrl.push(MensagemPage);

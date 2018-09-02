@@ -1,26 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
+import { CATEGORIAS } from '../../../constantes/categorias';
+import { ALIMENTOS } from '../../../constantes/alimentos';
 import { PesquisarPage } from '../pesquisar/pesquisar';
 import { DetalhePage } from '../detalhe/detalhe';
-import { DiarioService } from '../../../services/diario.service';
 import { Alimento } from '../../../models/alimento';
+import { DiariosProvider } from '../../../providers/services-diarios/services-diarios';
 
 @Component({
   selector: 'page-diario',
   templateUrl: 'diario.html'
 })
 export class DiarioPage {
-  lista;
-  
-  constructor(public navCtrl: NavController, public dService: DiarioService) {}
-
-  async ionViewDidEnter() {
-    this.lista = await this.dService.getDiario();
-  }
+  constructor(public navCtrl: NavController, public service: DiariosProvider) {}
 
   pesquisar() {
-    this.navCtrl.push(PesquisarPage);
+    const Dados = {
+      lista: CATEGORIAS,
+      alimentos: ALIMENTOS,
+      header: 'Categorias',
+      edit: false
+    };
+    this.navCtrl.push(PesquisarPage, Dados);
   }
 
   detalhar(alimento) {

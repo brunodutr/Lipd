@@ -2,7 +2,6 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { IonicStorageModule } from '@ionic/storage';
 import { InicioPage } from '../pages/inicio/inicio';
 import { HistoricoPage } from '../pages/historico/historico';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -16,11 +15,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import * as Constantes from '../constantes/config';
 
 import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { firebaseConfig } from '../constantes/firebase.config';
 import { LoginPage } from '../pages/login/login';
 import { AuthService } from '../services/auth.service';
-import { DiarioService } from '../services/diario.service';
+import { DiariosProvider } from '../providers/services-diarios/services-diarios';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { DiarioService } from '../services/diario.service';
     BrowserModule,
     IonicModule.forRoot(MyApp, Constantes.APP_CONFIG),
     AngularFireModule.initializeApp(firebaseConfig.fire),
-    IonicStorageModule.forRoot()
+    AngularFirestoreModule.enablePersistence()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,9 +58,9 @@ import { DiarioService } from '../services/diario.service';
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    DiarioService,
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    DiariosProvider
   ]
 })
 export class AppModule {}

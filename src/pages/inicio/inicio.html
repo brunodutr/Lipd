@@ -28,14 +28,14 @@
     <ion-item>
       <ion-row class="center">
         <ion-avatar item-start>
-          <img src="assets/imgs/personas/persona1.png">
+          <img src="{{ usuario?.foto }}">
         </ion-avatar>
       </ion-row>
       <ion-row class="center">
-        <h2>Olá, Bruno Dutra</h2>
+        <h2>Olá, {{ usuario?.nome }}</h2>
       </ion-row>
       <ion-row class="center">
-        <p>brun_dutra@hotmail.com</p>
+        <p>{{ usuario?.email }}</p>
       </ion-row>
     </ion-item>
 

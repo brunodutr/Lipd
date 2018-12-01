@@ -1,0 +1,8 @@
+<quill-editor
+  [placeholder]="placeholder"
+  [style]="{ height: '90%' }"
+  [modules]="editor_modules"
+  [(ngModel)]="html"
+  (onContentChanged)="emit()"
+>
+</quill-editor>

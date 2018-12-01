@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-searchbar placeholder="Buscar pacientes"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngFor="let paciente of pacientes">
+    <ion-item lines="full">
+      <ion-avatar slot="start">
+        <img [src]="paciente.img">
+      </ion-avatar>
+      <ion-label>
+        <h1>{{paciente.nome}}</h1>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <lipd-cropper [(image)]="receita.thumbnail"> </lipd-cropper>
+
+    <ion-item>
+      <ion-label position="fixed">Título:</ion-label>
+      <ion-input clearInput [(ngModel)]="receita.titulo"></ion-input>
+    </ion-item>
+
+    <lipd-editor
+      [thumbnail]="receita.thumbnail"
+      [title]="receita.titulo"
+      [(html)]="receita.html"
+      placeholder="Escreva sua receita aqui"
+    ></lipd-editor>
+
+    <ion-row justify-content-center>
+      <ion-button (click)="teste()">Teste</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

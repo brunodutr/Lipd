@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <h1>{{ artigo?.titulo }}</h1>
+    </ion-row>
+    <ion-row>
+      <span>
+        <ion-icon name="calendar"></ion-icon> {{ artigo?.data | date }}
+      </span>
+    </ion-row>
+    <ion-row>
+      <div
+        class="ql-editor"
+        style="width: 100%;"
+        [innerHtml]="artigo?.html | safe"
+      ></div>
+    </ion-row>
+  </ion-grid>
+</ion-content>

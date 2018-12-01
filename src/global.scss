@@ -1,12 +1,64 @@
 // http://ionicframework.com/docs/theming/
-@import "~@ionic/angular/css/core.css";
-@import "~@ionic/angular/css/normalize.css";
-@import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
 
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
 
+$white: #fff;
+$menu-color: #4acaa8;
+
+ion-menu {
+  ion-content {
+    --background: #4acaa8 !important;
+  }
+
+  ion-avatar {
+    margin: auto;
+    width: 6vw;
+    height: 6vw;
+    margin-top: 1vw;
+    margin-bottom: 0.5vw;
+  }
+
+  p,
+  h1 {
+    color: $white;
+    text-align: center;
+    margin: 0;
+  }
+
+  ion-item {
+    ion-icon {
+      color: $white;
+      font-size: 2vw;
+    }
+    background-color: $menu-color;
+    color: $white;
+  }
+}
+
+.menu-item-active {
+  ion-icon {
+    color: $menu-color;
+  }
+  background-color: $white;
+  color: $menu-color;
+}
+
+ion-toolbar {
+  --background: #fff !important;
+}
+
+ion-header {
+  z-index: 0;
+}
+
+.split-pane-md {
+  --border: none;
+}

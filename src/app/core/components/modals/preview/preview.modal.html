@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button icon-only (click)="closeModal()">
+        <ion-icon color="dark" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngIf="thumbnail" justify-content-center>
+      <img [src]="thumbnail" style="width: 90%; height: 90%;" />
+    </ion-row>
+    <ion-row justify-content-center>
+      <h1>{{ titulo }}</h1>
+    </ion-row>
+    <ion-row>
+      <span> <ion-icon name="calendar"></ion-icon> {{ data | date }} </span>
+    </ion-row>
+    <ion-row justify-content-center>
+      <div
+        class="ql-editor"
+        style="width: 100%;"
+        [innerHtml]="html | safe"
+      ></div>
+    </ion-row>
+  </ion-grid>
+</ion-content>
